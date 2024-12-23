@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Server for internet subscription tracking app",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node dist/index.js",
     "dev": "nodemon",
     "build": "tsc",
+    "production": "node ./dist/index.js",
     "test": "jest"
   },
   "author": "",
@@ -24,6 +25,8 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
+    "chalk": "^5.4.1",
+    "concurrently": "^9.1.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "prettier": "^3.4.2"
