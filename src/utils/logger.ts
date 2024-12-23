@@ -13,24 +13,23 @@ class Logger {
 
   public async log(level: logLevel, message: string): Promise<void> {
     const logData = `[${this.timestamp()} [${level.toUpperCase()}]:`;
-    const logMessage = `${chalk.blue(logData)} ${chalk.white(message)}`;
 
     if (this.logToConsole) {
       switch (level) {
         case 'info':
-          console.log(logMessage);
+          console.log(`${chalk.cyanBright(logData)} ${chalk.white(message)}`);
           break;
         case 'warn':
-          console.log(logMessage);
+          console.log(`${chalk.yellowBright(logData)} ${chalk.white(message)}`);
           break;
         case 'error':
-          console.log(logMessage);
+          console.log(`${chalk.redBright(logData)} ${chalk.white(message)}`);
           break;
         case 'debug':
-          console.log(logMessage);
+          console.log(`${chalk.yellow(logData)} ${chalk.white(message)}`);
           break;
         default:
-          console.log(logMessage);
+          console.log(`${chalk.white(logData)} ${chalk.white(message)}`);
       }
     }
   }
@@ -44,4 +43,4 @@ class Logger {
   }
 }
 
-export default Logger;
+export const logger = new Logger();
